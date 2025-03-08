@@ -9,6 +9,7 @@ import Status from "./status";
 import Widget from "./widget";
 import Ping from "./ping";
 import SiteMonitor from "./site-monitor";
+import Badge from "./badge";
 import KubernetesStatus from "./kubernetes-status";
 
 export default function Item({ service, groupName, useEqualHeights }) {
@@ -99,6 +100,12 @@ export default function Item({ service, groupName, useEqualHeights }) {
               <div className="shrink-0 flex items-center justify-center service-tag service-site-monitor">
                 <SiteMonitor groupName={groupName} serviceName={service.name} style={statusStyle} />
                 <span className="sr-only">Site monitor status</span>
+              </div>
+            )}
+
+            {service.badge && (
+              <div className="shrink-0 flex items-center justify-center service-tag service-badge">
+                <Badge badge={service.badge} />
               </div>
             )}
 
